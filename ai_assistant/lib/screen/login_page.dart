@@ -216,12 +216,12 @@ class _LoginPageState extends State<LoginPage> {
 
   try {
     // 👉 Add your backend API URL here when ready
-    final uri = Uri.parse("http://192.168.254.101:5000/logging/login");
+    final uri = Uri.parse("http://localhost:5000/api/logging");
 
     final response = await http.post(
       uri,
       headers: {"Content-Type": "application/json"},
-      body: jsonEncode({"@": email}),
+      body: jsonEncode({"email": email}),
     );
 
     final data = jsonDecode(response.body);
